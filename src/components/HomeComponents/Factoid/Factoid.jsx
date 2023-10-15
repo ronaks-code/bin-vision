@@ -1,6 +1,6 @@
-import React from 'react';
-import BlinkingCursor from '../BlinkingCursor/BlinkingCursor';
-import styles from './Factoid.module.css';
+import React from "react";
+import BlinkingCursor from "../BlinkingCursor/BlinkingCursor";
+import styles from "./Factoid.module.css";
 
 const FACTOIDS = [
   "Recycling one ton of paper can save 17 trees.",

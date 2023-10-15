@@ -2,8 +2,9 @@ import React, { useRef, useState, useEffect } from "react";
 import { uploadImage } from "./api";
 import styles from "./CameraFeed.module.css";
 
-const CameraFeed = () => {
+const CameraFeed = ({ onCameraStateChange = () => {} }) => {
   const [prediction, setPrediction] = useState(null);
+  const [isCameraOpen, setIsCameraOpen] = useState(false); // Add state to track camera open/close
   const prevFrameRef = useRef(null);
   const videoRef = useRef(null);
   const canvasRef = useRef(null);
@@ -13,22 +14,31 @@ const CameraFeed = () => {
   useEffect(() => {
     return () => {
       clearInterval(frameProcessingInterval);
+      onCameraStateChange(false);
     };
   }, []);
 
-  const handleOpenCamera = async () => {
-    try {
-      const stream = await navigator.mediaDevices.getUserMedia({ video: true });
-      videoRef.current.srcObject = stream;
-      videoRef.current.onloadedmetadata = (e) => {
-        canvasRef.current.width = e.target.videoWidth;
-        canvasRef.current.height = e.target.videoHeight;
-      };
+  const handleToggleCamera = async () => {
+    if (!isCameraOpen) {
+      try {
+        const stream = await navigator.mediaDevices.getUserMedia({ video: true });
+        videoRef.current.srcObject = stream;
+        setIsCameraOpen(true);
+        videoRef.current.onloadedmetadata = (e) => {
+          canvasRef.current.width = e.target.videoWidth;
+          canvasRef.current.height = e.target.videoHeight;
+        };
 
-      clearInterval(frameProcessingInterval);
-      frameProcessingInterval = setInterval(processFrame, 1500);
-    } catch (err) {
-      console.error("Error accessing camera:", err);
+        clearInterval(frameProcessingInterval);
+        frameProcessingInterval = setInterval(processFrame, 1500);
+      } catch (err) {
+        console.error("Error accessing camera:", err);
+      }
+    } else {
+      // Close the camera
+      videoRef.current.srcObject.getTracks().forEach((track) => track.stop());
+      setIsCameraOpen(false);
+      setPrediction(null); // Clear the prediction when closing the camera
     }
   };
 
@@ -79,22 +89,17 @@ const CameraFeed = () => {
   };
 
   return (
-    <div className="container">
-      {prediction && <p className="predictionText">{prediction}</p>}
-      <canvas ref={canvasRef} style={{ display: "none" }}></canvas>
-      <video ref={videoRef} autoPlay className="camera"></video>
+    <div className={styles.cameraContainer}>
+      <div className={styles.cameraBorder}>
+        <video ref={videoRef} autoPlay className={styles.cameraVideo}></video>
+      </div>
       <button
-        onClick={handleOpenCamera}
-        className={`${styles.buttonBase} ${styles.openCameraButton}`}
+        onClick={handleToggleCamera}
+        className={styles.toggleCameraButton}
       >
-        Open Camera
+        {isCameraOpen ? "Close Camera" : "Open Camera"}
       </button>
-      {/* <button
-        onClick={handleCaptureImage}
-        className={`${styles.buttonBase} ${styles.CameraFeed}`}
-      >
-        Capture & Predict
-      </button> */}
+      {prediction && <p className={styles.predictionText}>{prediction}</p>}
     </div>
   );
 };
