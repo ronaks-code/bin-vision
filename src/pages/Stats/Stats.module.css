@@ -1,48 +1,3 @@
-/* .container {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  height: 100vh;
-  width: 100vw;
-  background-color: #0A0F0B;
-  padding-top: 50px;
-  padding-bottom: 50px;
-}
-
-.title {
-  font-size: 48px;
-  font-weight: bold;
-  color: #228B22;
-  margin-bottom: 30px;
-  text-shadow: -1px 1px 10px rgba(34, 139, 34, 0.75);
-}
-
-.buttonContainer {
-  display: flex;
-  justify-content: center;
-  margin: 10px 0;
-}
-
-.button {
-  padding: 10px;
-  margin: 0 5px;
-  border: 1px solid #ccc;
-  border-radius: 5px;
-  background-color: #0A0F0B;
-  color: #fff;
-  cursor: pointer;
-  transition: background-color 0.3s ease;
-}
-
-.buttonText {
-  color: #ffffff;
-  font-size: 16px;
-}
-
-.activeButton {
-  background-color: #33FF7A;
-} */
-
 .container {
   border-radius: 20px;
   box-shadow: 0px 10px 35px rgba(0, 0, 0, 0.25); /* Enhanced shadow for depth */
@@ -52,7 +7,7 @@
   height: 100vh;
   width: 100vw;
   background-color: #0A0F0B;
-  padding-top: 60px; /* Increased padding for better spacing */
+  padding-top: 30px; /* Increased padding for better spacing */
   padding-bottom: 60px;
 }
 
@@ -61,7 +16,7 @@
   transition: color 0.3s, text-shadow 0.3s;
   font-size: 50px; /* Slightly increased font size */
   color: #33FF7A;
-  margin-bottom: 35px; /* Increased margin for better spacing */
+  margin-bottom: 10px; /* Increased margin for better spacing */
   text-shadow: -1px 1px 12px rgba(34, 139, 34, 0.8); /* Enhanced text shadow */
 }
 
@@ -69,11 +24,14 @@
   display: flex;
   justify-content: center;
   margin: 15px 0; /* Increased margin for better spacing */
+  
 }
 
 .button {
   transition: background-color 0.3s, transform 0.3s, box-shadow 0.3s;
-  padding: 12px 20px; /* Increased padding for better spacing */
+  height: 50px;
+  width: 150px;
+  padding: 12px 12px; /* Increased padding for better spacing */
   margin: 0 10px; /* Increased margin for better spacing */
   border: 1px solid #ccc;
   border-radius: 8px; /* More rounded corners */
@@ -99,3 +57,16 @@
   color: #0A0F0B; /* Dark text color for contrast */
   font-weight: bold; /* Bold font weight for active state */
 }
+.view {
+  transition: opacity 0.1s ease;
+  position: absolute;
+  width: 100%;
+  opacity: 0;
+  pointer-events: none;  /* Ensure the hidden view does not capture events */
+}
+
+.view.active {
+  opacity: 1;
+  pointer-events: all;  /* The active view should capture events */
+}
+
