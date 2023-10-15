@@ -2,7 +2,11 @@
   display: flex;
   flex-direction: column;
   background-color: #1E1E1E;
-  padding: 50px;
+  padding: 20px 50px 50px 50px;
+  width: 60vw;       /* changed to viewport width for better responsiveness */
+  height: 60vh;      /* fixed height relative to the viewport */
+  overflow-y: auto;  /* enables vertical scrolling when content overflows */
+  border-radius: 10px;  /* added for some rounded corners */
 }
 
 .title {
@@ -15,7 +19,7 @@
 .header {
   display: flex;
   justify-content: space-between;
-  margin-bottom: 20px;
+  margin-bottom: 10px;
   align-items: center;
 }
 
@@ -78,3 +82,4 @@
   background-color: white;
   margin-bottom: 10px;
 }
+

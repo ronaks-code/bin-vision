@@ -1,6 +1,21 @@
 import React, { useRef, useState, useEffect } from "react";
 import { uploadImage } from "./api";
 import styles from "./CameraFeed.module.css";
+import { db } from "../../../Firebase"
+import { get, ref, set } from 'firebase/database';
+
+const incrementRecycledItem = async () => {
+  const dataRef = ref(db, 'Data/1/Items Recycled');  // Assuming "1" is the key of the first item in the database
+
+  // Fetch the current value
+  const snapshot = await get(dataRef);
+  if (snapshot.exists()) {
+    const currentValue = snapshot.val();
+    
+    // Update the value in the database
+    set(dataRef, currentValue + 1);
+  }
+};
 
 const CameraFeed = () => {
   const [prediction, setPrediction] = useState(null);
@@ -76,6 +91,10 @@ const CameraFeed = () => {
     const dataURL = canvas.toDataURL("image/jpeg");
     const response = await uploadImage(dataURL);
     setPrediction(`Prediction: ${response.result}`);
+    if (['glass', 'plastic', 'paper'].includes(response.result.toLowerCase())) {
+      console.log("yes")
+      incrementRecycledItem();
+    }
   };
 
   return (
