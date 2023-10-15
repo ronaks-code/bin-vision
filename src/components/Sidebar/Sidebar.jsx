@@ -49,7 +49,7 @@ const SideBar = () => {
 
   const menuItems = [
     {
-      to: "/",
+      to: "/home",
       icon: <FaFire size="28" />,
       text: "Home",
     },

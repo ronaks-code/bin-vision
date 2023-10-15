@@ -8,7 +8,7 @@ const IntroPage = () => {
   return (
     <div className={styles.introPage}>
       <h1 className={styles.title}>BinVision</h1>
-      <p className={styles.quote}>Revolutionizing Recycling</p>
+      <p className={styles.quote}>Revolutionize Recycling</p>
       <Factoid />
       <Link to="/home" className={styles.getStartedButton}>
         Get Started

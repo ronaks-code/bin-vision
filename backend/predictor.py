@@ -8,9 +8,9 @@ from PIL import Image
 import fastai 
 import utils
 from PIL import Image
-import pathlib
-temp = pathlib.PosixPath
-pathlib.PosixPath = pathlib.WindowsPath
+# import pathlib
+# temp = pathlib.PosixPath
+# pathlib.PosixPath = pathlib.WindowsPath
 
 learn_loaded = load_learner('waste-classifier/result-resnet34.pkl')
 print(type(learn_loaded))
