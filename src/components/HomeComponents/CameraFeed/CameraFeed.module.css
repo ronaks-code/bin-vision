@@ -7,6 +7,7 @@
 }
 
 .camera {
+  border: 3px solid #228B22;
   display: flex;
   width: 100%;
   align-items: center;
@@ -16,22 +17,26 @@
 
 .buttonBase {
   padding: 15px 40px;
-  border-radius: 25px;
-  background-color: rgba(0, 0, 0, 0.7);
-  border: 2px solid #228B22;
-  box-shadow: 0 4px 5px rgba(34, 139, 34, 0.3);
-  color: #228B22;
+  border-radius: 50px;  /* More rounded corners */
+  background: linear-gradient(135deg, #228B22, #33FF7A);  /* Gradient background */
+  border: none;
+  color: white;
   font-size: 20px;
   font-weight: 600;
   display: flex;
   align-items: center;
   justify-content: center;
   cursor: pointer;
-  transition: background-color 0.3s;
+  transition: transform 0.3s, box-shadow 0.3s;  /* Smooth transitions */
 }
 
 .openCameraButton {
-  margin-top: 20px;
+  margin-top: 200px;
+  margin-left: 60px;
+  padding: 20px;
+  align-items: center;
+  justify-content: center;
+  display: flex;
 }
 
 .disposeButton {
@@ -39,11 +44,17 @@
 }
 
 .buttonBase:hover {
-  background-color: rgba(0, 0, 0, 0.9);
+  transform: translateY(-5px);
+  box-shadow: 0px 5px 20px rgba(0, 0, 0, 0.2);
 }
 
 .predictionText {
+  font-size: 24px;
+  font-weight: bold;
+  background-color: rgba(34, 139, 34, 0.8);
+  padding: 10px 20px;
+  border-radius: 15px;
   margin-top: 20px;
   font-size: 18px;
-  color: "white";
+  color: white;
 }

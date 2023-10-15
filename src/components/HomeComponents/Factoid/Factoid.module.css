@@ -1,4 +1,4 @@
-.factoidContainer {
+/* .factoidContainer {
   margin-top: 30px;
   padding: 10px 20px;
   background-color: rgba(0, 0, 0, 0.7);
@@ -13,4 +13,26 @@
   font-size: 24px;
   color: #228B22;
   text-align: center;
+} */
+.factoidContainer {
+  margin-top: 30px;
+  padding: 20px;
+  background-color: rgba(0, 0, 0, 0.7);
+  border-radius: 25px;  /* More rounded corners */
+  border: 2px solid #228B22;
+  box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.2);
+  transition: transform 0.3s, box-shadow 0.3s;  /* Smooth transitions */
+}
+
+.factoidText {
+  font-size: 24px;
+  color: #228B22;
+  text-align: center;
+  transition: color 0.3s;
+  display: flex;
+}
+
+.factoidContainer:hover {
+  transform: translateY(-5px);
+  box-shadow: 0px 7px 20px rgba(0, 0, 0, 0.25);
 }
