@@ -12,6 +12,10 @@
   animation: blink 1s infinite;
 }
 
+.noBlink {
+  animation: none !important;
+}
+
 @keyframes blink {
   0%,
   49% {

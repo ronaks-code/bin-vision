@@ -9,6 +9,7 @@
 }
 
 .factoidText {
+  display: flex;
   font-size: 24px;
   color: #228B22;
   text-align: center;
