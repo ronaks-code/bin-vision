@@ -1,0 +1,80 @@
+.container {
+  display: flex;
+  flex-direction: column;
+  background-color: #1E1E1E;
+  padding: 50px;
+}
+
+.title {
+  font-size: 24px;
+  color: #33FF7A;
+  margin-bottom: 20px;
+  text-align: center;
+}
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 20px;
+  align-items: center;
+}
+
+.headerText {
+  color: #33FF7A;
+  font-weight: bold;
+  font-size: 18px;
+  text-align: center;
+  flex: 1;
+}
+
+.row {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 10px;
+  align-items: center;
+  padding: 10px;
+  background-color: #2F2F2F;
+  border-radius: 10px;
+}
+
+.rowText {
+  color: white;
+  font-size: 16px;
+  text-align: center;
+  flex: 1;
+}
+
+.modal {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.9);
+}
+
+.modalContent {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.modalText {
+  font-size: 18px;
+  margin-bottom: 10px;
+  color: white;
+}
+
+.greenText {
+  color: "#228B22";
+}
+
+.mapContainer {
+  width: 500px;
+  height: 500px;
+  background-color: white;
+  margin-bottom: 10px;
+}

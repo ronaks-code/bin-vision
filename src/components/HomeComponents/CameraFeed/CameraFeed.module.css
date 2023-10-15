@@ -1,0 +1,49 @@
+.container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+}
+
+.camera {
+  display: flex;
+  width: 100%;
+  align-items: center;
+  justify-content: center;
+  flex-grow: 1;
+}
+
+.buttonBase {
+  padding: 15px 40px;
+  border-radius: 25px;
+  background-color: rgba(0, 0, 0, 0.7);
+  border: 2px solid #228B22;
+  box-shadow: 0 4px 5px rgba(34, 139, 34, 0.3);
+  color: #228B22;
+  font-size: 20px;
+  font-weight: 600;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.openCameraButton {
+  margin-top: 20px;
+}
+
+.disposeButton {
+  margin-bottom: 30px;
+}
+
+.buttonBase:hover {
+  background-color: rgba(0, 0, 0, 0.9);
+}
+
+.predictionText {
+  margin-top: 20px;
+  font-size: 18px;
+  color: "white";
+}

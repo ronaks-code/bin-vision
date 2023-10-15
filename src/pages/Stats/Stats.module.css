@@ -1,0 +1,44 @@
+.container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  height: 100vh;
+  width: 100vw;
+  background-color: #0A0F0B;
+  padding-top: 50px;
+  padding-bottom: 50px;
+}
+
+.title {
+  font-size: 48px;
+  font-weight: bold;
+  color: #228B22;
+  margin-bottom: 30px;
+  text-shadow: -1px 1px 10px rgba(34, 139, 34, 0.75);
+}
+
+.buttonContainer {
+  display: flex;
+  justify-content: center;
+  margin: 10px 0;
+}
+
+.button {
+  padding: 10px;
+  margin: 0 5px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  background-color: #0A0F0B;
+  color: #fff;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.buttonText {
+  color: #ffffff;
+  font-size: 16px;
+}
+
+.activeButton {
+  background-color: #33FF7A;
+}

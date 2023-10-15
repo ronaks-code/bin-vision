@@ -1,0 +1,88 @@
+.sidebarContainer {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100vh;
+  background-color: transparent;
+  z-index: 9999;
+}
+
+.sidebar {
+  width: 250px;
+  height: 100%;
+  flex-direction: column;
+  background-color: #2B2B2B;
+  padding-top: 50px;
+  z-index: 10;
+  border-top-right-radius: 30px; 
+  border-bottom-right-radius: 30px;
+  box-shadow: 3px 0 6px rgba(0, 0, 0, 0.4);
+  transition: transform 0.3s ease; /* for smooth slide-in/slide-out */
+}
+
+.closeButton {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  z-index: 9999;
+  width: 40px;
+  height: 40px;
+  border-radius: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #8B00FF; 
+  cursor: pointer;
+}
+
+.menuButton {
+  position: absolute;
+  top: 10px;
+  left: 10px;
+  width: 40px;
+  height: 40px;
+  border-radius: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #8B00FF; 
+  z-index: 11;
+  cursor: pointer;
+}
+
+.sidebarItem {
+  display: flex;
+  align-items: center;
+  padding: 10px 15px;
+  border-bottom: 1px solid #444;
+  border-radius: 20px;
+  margin: 7px 0;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.gradientItemContainer {
+  display: flex;
+  align-items: center;
+  border-radius: 20px;
+  width: 100%;
+}
+
+.sidebarItemIcon {
+  margin-right: 20px;
+}
+
+.sidebarItemText {
+  font-size: 18px;
+  color: #EEE;
+  font-weight: 500;
+}
+
+.hoveredItem {
+  background-color: #4B4B4B;
+}
+
+.gradient {
+  flex: 1;
+  border-radius: 20px;
+}
