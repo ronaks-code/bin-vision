@@ -6,7 +6,9 @@ const FACTOIDS = [
   "Recycling one ton of paper can save 17 trees.",
   "Every hour, Americans use 2.5 million plastic bottles.",
   "Glass can be recycled endlessly without loss in quality.",
-  // ... Add more factoids here
+  "Recycling Creates Jobs: The recycling industry generates employment opportunities in collection, processing, and manufacturing recycled products." ,
+  "Recycling in Space: Even astronauts on the International Space Station recycle waste materials to conserve resources.",
+  "Greenhouse Gas Emissions: Landfills emit methane, a potent greenhouse gas. Not recycling organic waste contributes to these emissions."
 ];
 
 const Factoid = () => {
@@ -28,7 +30,7 @@ const Factoid = () => {
       } else {
         setTimeout(() => {
           setTyping(false);
-        }, 3000);
+        }, 6000);
       }
     }
   }, [displayedText, typing, factoidIndex]);
