@@ -131,7 +131,11 @@ const CameraFeed = ({ onCameraStateChange = () => {} }) => {
     const dataURL = canvas.toDataURL("image/jpeg");
     const response = await uploadImage(dataURL);
     if (response && response.result) {
-      setInstructionText(`Prediction: ${response.result}`);
+      setInstructionText(
+        <div className="styles.predictionText">
+          Prediction: {response.result.toUpperCase()}
+        </div>
+      );
       if (
         ["glass", "plastic", "paper", "cardboard", "metal"].includes(
           response.result.toLowerCase()
@@ -174,7 +178,7 @@ const CameraFeed = ({ onCameraStateChange = () => {} }) => {
         <video ref={videoRef} autoPlay className={styles.cameraVideo}></video>
         <canvas ref={canvasRef} style={{ display: "none" }}></canvas>
       </div>
-      <p className={styles.instructionText}>{instructionText}</p>
+      <p className={styles.predictionText}>{instructionText}</p>
     </div>
   );
 };
