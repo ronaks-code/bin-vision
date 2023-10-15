@@ -1,9 +1,4 @@
-.container {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  background-color: black;
-}
+
 
 .cursor {
   display: inline-block;

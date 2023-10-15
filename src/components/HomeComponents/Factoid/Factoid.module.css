@@ -1,32 +1,34 @@
-/* .factoidContainer {
+.factoidContainer {
+  position:absolute;
+  bottom:40%;
   margin-top: 30px;
   padding: 10px 20px;
-  background-color: rgba(0, 0, 0, 0.7);
+  background-color: rgba(255, 255, 255, 0.7);
   border-radius: 15px;
-  border: 2px solid #228B22;
+  border: 2px solid #ffffff;
   box-shadow: 0px 4px 5px rgba(34, 139, 34, 0.3);
-  margin-bottom: 30px;
+  margin-bottom: 5px;
 }
 
-.factoidText {
+/* .factoidText {
   display: flex;
   font-size: 24px;
   color: #228B22;
   text-align: center;
-} */
-.factoidContainer {
+}  */
+/* .factoidContainer {
   margin-top: 30px;
   padding: 20px;
   background-color: rgba(0, 0, 0, 0.7);
   border-radius: 25px;  /* More rounded corners */
-  border: 2px solid #228B22;
-  box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.2);
-  transition: transform 0.3s, box-shadow 0.3s;  /* Smooth transitions */
-}
-
+  /* border: 2px solid #228B22; */
+  /* box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.2); */
+  /* transition: transform 0.3s, box-shadow 0.3s;  Smooth transitions */
+/* } */ 
 .factoidText {
+  font:'Orbitron';
   font-size: 24px;
-  color: #228B22;
+  color: #000000;
   text-align: center;
   transition: color 0.3s;
   display: flex;

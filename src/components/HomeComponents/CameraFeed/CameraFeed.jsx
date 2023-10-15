@@ -97,10 +97,12 @@ const CameraFeed = ({ onCameraStateChange = () => {} }) => {
   };
 
   const handleCaptureImage = async () => {
+    console.log("captured image");
     const canvas = canvasRef.current;
     const dataURL = canvas.toDataURL("image/jpeg");
     const response = await uploadImage(dataURL);
     setPrediction(`Prediction: ${response.result}`);
+    window.alert(response.result)
     if (['glass', 'plastic', 'paper'].includes(response.result.toLowerCase())) {
       console.log("yes")
       incrementRecycledItem();

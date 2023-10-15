@@ -3,9 +3,7 @@ import styles from './BlinkingCursor.module.css';
 
 const BlinkingCursor = () => {
     return (
-        <div className='container'>
-            <span className={styles.cursor}>|</span>
-        </div>
+        <span className={styles.cursor}>|</span>
     );
 };
 
