@@ -6,7 +6,7 @@ import styles from './Leaderboard.module.css';
 import { db } from '../../Firebase';
 import { ref, onValue, off } from 'firebase/database';
 
-const initialCoordinates = [33.7756, -84.3963]; // e.g., Georgia Tech
+const initialCoordinates = [33.7756, -84.3963];
 
 const greenIcon = new L.Icon({
   iconUrl: 'https://raw.githubusercontent.com/pointhi/leaflet-color-markers/master/img/marker-icon-2x-green.png',
@@ -21,6 +21,7 @@ const Leaderboard = () => {
   const [isModalVisible, setIsModalVisible] = useState(false);
   const [selectedBubbleInfo, setSelectedBubbleInfo] = useState(null);
   const [data, setData] = useState([]);
+  const [sortKey, setSortKey] = useState('itemsRecycled'); // default sorting
 
   const handleBubbleClick = (info) => {
     setSelectedBubbleInfo(info);
@@ -43,51 +44,85 @@ const Leaderboard = () => {
                 binNumber: item['Bin Number'],
                 itemsRecycled: item['Items Recycled'],
                 itemsTrashed: item['Items Trashed'],
+                itemsComposted: item['Items Composted'],
                 latitude: item.Latitude,
                 longitude: item.Longitude
             }));
 
-            setData(formattedData);
+            // Sort data based on the selected sortKey
+            const sortedData = formattedData.sort((a, b) => b[sortKey] - a[sortKey]);
+            setData(sortedData);
         } else {
             console.error('No data retrieved from Firebase.');
         }
     };
 
-    const errorCallback = (error) => {
-        console.error('Firebase Error:', error);
-    };
-
-    onValue(dataRef, successCallback, errorCallback);
+    onValue(dataRef, successCallback);
 
     return () => {
         off(dataRef, 'value', successCallback);
     };
 
-  }, []);
+  }, [sortKey]);
 
-  const sortedData = [...data].sort((a, b) => b.itemsRecycled - a.itemsRecycled);
+  // Create an animation delay for each row
+  useEffect(() => {
+    const rows = document.querySelectorAll(`.${styles.row}`);
+    rows.forEach((row, index) => {
+      row.style.animationDelay = `${index * 0.1}s`;
+    });
+  }, [data]);
+
+  const handleSort = (type) => {
+    setData([]);  // Empty the data array to "remove" all rows.
+
+    setTimeout(() => {  // Set a delay before "adding" the rows back.
+        const sorted = [...data].sort((a, b) => b[type] - a[type]);
+        setData(sorted);
+    }, 500);  // 500ms delay matches the animation duration.
+
+    setSortKey(type); // Update the sortKey
+  };
 
   return (
     <div className={styles.container}>
       <h1 className={styles.title}>Leaderboard</h1>
       <div className={styles.header}>
-        <span className={styles.headerText}>Location</span>
-        <span className={styles.headerText}>Bin Number</span>
-        <span className={styles.headerText}>Items Recycled</span>
+          <span className={styles.headerText}>
+              Location
+          </span>
+          <span className={styles.headerText}>
+              Bin Number
+          </span>
+          <span className={styles.headerText}>
+              <button className={styles.sortButton} onClick={() => handleSort('itemsRecycled')}>Sort by Items Recycled</button>
+          </span>
+          <span className={styles.headerText}>
+              <button className={styles.sortButton} onClick={() => handleSort('itemsTrashed')}>Sort by Items Trashed</button>
+          </span>
+          <span className={styles.headerText}>
+              <button className={styles.sortButton} onClick={() => handleSort('itemsComposted')}>Sort by Items Composted</button>
+          </span>
       </div>
-      {sortedData.map((item, index) => (
-        <div key={index} onClick={() => handleBubbleClick(item)} className={styles.row}>
-          <span className={styles.rowText}>{item.location}</span>
-          <span className={styles.rowText}>{item.binNumber}</span>
-          <span className={styles.rowText}>{item.itemsRecycled}</span>
-        </div>
+
+      {data.map((item, index) => (
+          <div key={index} onClick={() => handleBubbleClick(item)} className={styles.row}>
+              <span className={styles.rowText}>{item.location}</span>
+              <span className={styles.rowText}>{item.binNumber}</span>
+              <span className={styles.rowText}>{item.itemsRecycled}</span>
+              <span className={styles.rowText}>{item.itemsTrashed}</span>
+              <span className={styles.rowText}>{item.itemsComposted}</span>
+          </div>
       ))}
+
       {isModalVisible && (
         <div className={styles.modal}>
           <div className={styles.modalContent}>
             <p className={styles.modalText}>Location: {selectedBubbleInfo.location}</p>
             <p className={styles.modalText}>Bin Number: {selectedBubbleInfo.binNumber}</p>
             <p className={styles.modalText}>Items Recycled: {selectedBubbleInfo.itemsRecycled}</p>
+            <p className={styles.modalText}>Items Trashed: {selectedBubbleInfo.itemsTrashed}</p>
+            <p className={styles.modalText}>Items Composted: {selectedBubbleInfo.itemsComposted}</p>
             <div className={styles.mapContainer}>
               <MapContainer center={initialCoordinates} zoom={15} style={{ width: '100%', height: '100%' }} attributionControl={false}>
                   <TileLayer
@@ -99,7 +134,7 @@ const Leaderboard = () => {
                   </Marker>
               </MapContainer>
             </div>
-            <button onClick={closeModal} style={{ backgroundColor: '#228B22', color: 'white', padding: '10px 20px', borderRadius: '5px' }}>Close</button>
+            <button onClick={closeModal} className={styles.sortButton}>Close</button>
           </div>
         </div>
       )}
@@ -108,3 +143,4 @@ const Leaderboard = () => {
 };
 
 export default Leaderboard;
+
