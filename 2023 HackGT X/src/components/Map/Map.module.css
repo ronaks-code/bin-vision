@@ -1,0 +1,32 @@
+.greenText {
+    color: #228B22;
+}
+
+.mapContainer {
+    width: 80vw;
+    height: 80vh;
+    background-color: white;
+    margin-bottom: 10px;
+    animation: fadeIn 1s;
+}
+
+@keyframes fadeIn {
+    0% { opacity: 0; }
+    100% { opacity: 1; }
+}
+
+@keyframes scaleUp {
+    0% {
+        transform: scale(0);
+    }
+    100% {
+        transform: scale(1);
+    }
+}
+
+.row:hover {
+    transform: translateY(-6px); /* Increased the shift on hover */
+    background-color: #414141;
+  }
+  
+
