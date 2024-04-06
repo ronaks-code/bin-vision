@@ -161,6 +161,7 @@ const CameraFeed = ({ onCameraStateChange = () => {} }) => {
         <select
           value={selectedBinRef.current}
           onChange={(e) => {
+            setSelectedBin(Number(e.target.value));
             selectedBinRef.current = Number(e.target.value);
             console.log("Selected Bin:", e.target.value);
           }}
