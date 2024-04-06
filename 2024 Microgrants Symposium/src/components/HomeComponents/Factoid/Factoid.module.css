@@ -1,0 +1,40 @@
+.factoidContainer {
+  position:absolute;
+  bottom:40%;
+  margin-bottom: 0px;
+  padding: 10px 20px;
+  background-color: rgba(255, 255, 255, 0.7);
+  border-radius: 15px;
+  border: 5px solid #ffffff;
+  box-shadow: 0px 4px 5px rgba(34, 139, 34, 0.3);
+}
+
+/* .factoidText {
+  display: flex;
+  font-size: 24px;
+  color: #228B22;
+  text-align: center;
+}  */
+/* .factoidContainer {
+  margin-top: 30px;
+  padding: 20px;
+  background-color: rgba(0, 0, 0, 0.7);
+  border-radius: 25px;  /* More rounded corners */
+  /* border: 2px solid #228B22; */
+  /* box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.2); */
+  /* transition: transform 0.3s, box-shadow 0.3s;  Smooth transitions */
+/* } */ 
+.factoidText {
+  font:'Orbitron';
+  font-size: 27px;
+  color: #000000;
+  text-align: center;
+  transition: color 0.3s;
+  display: flex;  /* Added to ensure inline alignment of the BlinkingCursor with the text */
+  align-items: center;  /* Vertical centering for the text and cursor */
+}
+
+.factoidContainer:hover {
+  transform: translateY(-5px);
+  box-shadow: 0px 7px 20px rgba(0, 0, 0, 0.25);
+}

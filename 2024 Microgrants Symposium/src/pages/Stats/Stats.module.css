@@ -1,0 +1,72 @@
+.container {
+  border-radius: 20px;
+  box-shadow: 0px 10px 35px rgba(0, 0, 0, 0.25); /* Enhanced shadow for depth */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  height: 100vh;
+  width: 100vw;
+  background-color: #0A0F0B;
+  padding-top: 30px; /* Increased padding for better spacing */
+  padding-bottom: 60px;
+}
+
+.title {
+  font-weight: bold;
+  transition: color 0.3s, text-shadow 0.3s;
+  font-size: 50px; /* Slightly increased font size */
+  color: #33FF7A;
+  margin-bottom: 10px; /* Increased margin for better spacing */
+  text-shadow: -1px 1px 12px rgba(34, 139, 34, 0.8); /* Enhanced text shadow */
+}
+
+.buttonContainer {
+  display: flex;
+  justify-content: center;
+  margin: 15px 0; /* Increased margin for better spacing */
+  
+}
+
+.button {
+  transition: background-color 0.3s, transform 0.3s, box-shadow 0.3s;
+  height: 50px;
+  width: 150px;
+  padding: 12px 12px; /* Increased padding for better spacing */
+  margin: 0 10px; /* Increased margin for better spacing */
+  border: 1px solid #ccc;
+  border-radius: 8px; /* More rounded corners */
+  background-color: #0A0F0B;
+  color: #fff;
+  cursor: pointer;
+  font-size: 18px; /* Increased font size for better readability */
+  box-shadow: 0px 2px 10px rgba(0, 0, 0, 0.15); /* Added a subtle shadow */
+}
+
+.buttonText {
+  color: #ffffff;
+}
+
+.button:hover {
+  transform: translateY(-3px); /* Slight upward shift on hover */
+  background-color: #1A2F1B; /* Slightly darker background on hover */
+  box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.2); /* Enhanced shadow on hover */
+}
+
+.activeButton {
+  background-color: #33FF7A;
+  color: #0A0F0B; /* Dark text color for contrast */
+  font-weight: bold; /* Bold font weight for active state */
+}
+.view {
+  transition: opacity 0.1s ease;
+  position: absolute;
+  width: 100%;
+  opacity: 0;
+  pointer-events: none;  /* Ensure the hidden view does not capture events */
+}
+
+.view.active {
+  opacity: 1;
+  pointer-events: all;  /* The active view should capture events */
+}
+

@@ -1,0 +1,103 @@
+.container {
+  display: flex;
+  flex-direction: column;
+  background-color: #1E1E1E;
+  padding: 30px 60px 60px 60px;
+  width: 80vw;
+  height: 70vh;
+  overflow-y: auto;
+  border-radius: 10px;
+}
+
+.title {
+  font-size: 24px;
+  color: #33FF7A;
+  margin-bottom: 20px; /* Increased spacing */
+  margin-top: 0px;
+  text-align: center;
+}
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 20px; /* Increased spacing */
+  align-items: center;
+}
+
+.headerText {
+  color: #33FF7A;
+  font-weight: bold;
+  font-size: 18px;
+  text-align: center;
+  flex: 1;
+}
+
+.row {
+  display: flex;
+  height: 50px;
+  justify-content: space-between;
+  margin-bottom: 10px;
+  align-items: center;
+  padding: 10px;
+  background-color: #2F2F2F;
+  border-radius: 10px;
+  width: 100%;
+  transition: transform 0.3s, background-color 0.3s; /* Hover effect transition */
+  animation: fallIn 0.5s forwards;
+  opacity: 0;
+}
+
+.row:hover {
+  transform: translateY(-3px);
+  background-color: #414141;
+}
+
+.rowText {
+  color: white;
+  font-size: 16px;
+  text-align: center;
+  flex: 1;
+}
+.modal {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.9);
+}
+.modalContent {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.modalText {
+  font-size: 18px;
+  margin-bottom: 10px;
+  color: white;
+}
+
+.mapContainer {
+  width: 500px;
+  height: 500px;
+  background-color: white;
+  margin-bottom: 10px;
+}
+
+@keyframes fallIn {
+  from {
+    opacity: 0;
+    transform: translateY(-20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+
+
+

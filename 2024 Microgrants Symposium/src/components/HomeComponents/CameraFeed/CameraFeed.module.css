@@ -1,0 +1,166 @@
+.container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+}
+
+/* Small screens */
+.cameraContainer {
+  position: relative;
+  width: 480px;
+  height: 270px; /* 320 * 9/16 */
+  margin: 0 auto;
+}
+
+/* Medium screens */
+@media screen and (min-width: 768px) {
+  .cameraContainer {
+    width: 768px;
+    height: 432px; /* 768 * 9/16 */
+  }
+}
+
+/* Large screens */
+@media screen and (min-width: 1024px) {
+  .cameraContainer {
+    width: 1024px;
+    height: 576px; /* 1024 * 9/16 */
+  }
+}
+
+/* XL screens */
+@media screen and (min-width: 1248px) {
+  .cameraContainer {
+    width: 1152px;
+    height: 702px; /* 1024 * 9/16 */
+  }
+}
+
+.cameraBorder {
+  border-radius: 15px; /* Rounded corners */
+  overflow: hidden;
+  box-shadow: 0px 10px 40px rgba(200, 100, 255, 0.7); /* Lighter purple shadow */
+  width: 100%;
+  height: 100%;
+}
+
+.cameraVideo {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.instructionText {
+  font-size: 30px; /* Increased font size */
+  font-family: math; /* Fancy font style */
+  font-weight: bold;
+  color: white;
+  /* background-color: rgba(10, 10, 10, 0.8); semi-transparent black */
+  padding: 10px 20px;
+  border-radius: 15px;
+  text-align: center;
+  margin-top: 20px;
+  max-width: 90%;
+  white-space: pre-wrap; /* Breaks the text into new lines if required */
+  width: fit-content; /* Fits the width based on content */
+  margin-left: auto; /* Centering the block */
+  margin-right: auto; /* Centering the block */
+  /* box-shadow: 2px 4px 15px rgba(0, 0, 0, 0.5); Adding some shadow for depth */
+}
+
+.camera {
+  border: 3px solid #228b22;
+  display: flex;
+  width: 100%;
+  align-items: center;
+  justify-content: center;
+  flex-grow: 1;
+}
+
+.buttonBase {
+  padding: 15px 40px;
+  border-radius: 50px; /* More rounded corners */
+  background: linear-gradient(
+    135deg,
+    #228b22,
+    #33ff7a
+  ); /* Gradient background */
+  border: none;
+  color: white;
+  font-size: 20px;
+  font-weight: 600;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: transform 0.3s, box-shadow 0.3s; /* Smooth transitions */
+}
+
+.openCameraButton {
+  margin-top: 200px;
+  margin-left: 60px;
+  padding: 20px;
+  align-items: center;
+  justify-content: center;
+  display: flex;
+}
+
+.disposeButton {
+  margin-bottom: 30px;
+}
+
+.buttonBase:hover {
+  transform: translateY(-5px);
+  box-shadow: 0px 5px 20px rgba(0, 0, 0, 0.2);
+}
+
+.predictionText {
+  font-size: 35px;
+  font-weight: bold;
+  padding: 10px 20px;
+  border-radius: 15px;
+  margin-top: 20px;
+  text-align: center;
+  justify-content: center;
+  color: white;
+}
+
+.dropdownContainer {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  z-index: 9998;
+}
+
+.dropdown {
+  appearance: none;
+  outline: none;
+  border: 1px solid #e1e1e1;
+  background-color: #fff;
+  background-image: linear-gradient(to top, #f8f8f8, #fff);
+  padding: 10px 40px 10px 20px; /* Adjusted right padding to accommodate the icon */
+  border-radius: 5px;
+  box-shadow: 0px 2px 10px rgba(0, 0, 0, 0.1);
+  font-size: 16px;
+  color: #000;
+  cursor: pointer;
+  position: relative;
+  width: auto; /* Ensure the width is based on content and padding */
+}
+
+.dropdown:focus {
+  box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.2);
+}
+
+.dropdownIcon {
+  font-size: 20px;
+  color: #888;
+  cursor: pointer;
+  position: absolute;
+  top: 50%; /* Center the icon vertically */
+  right: 15px; /* Position from the right of the dropdown */
+  transform: translateY(-50%); /* Center the icon with a translation */
+  pointer-events: none; /* Make sure the icon doesn't interfere with the dropdown's click events */
+}
