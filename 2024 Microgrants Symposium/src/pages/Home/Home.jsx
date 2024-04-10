@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import Factoid from "../../components/HomeComponents/Factoid/Factoid";
 import CameraFeed from "../../components/HomeComponents/CameraFeed/CameraFeed";
 import PredictionText from "../../components/HomeComponents/CameraFeed/PredictionText";
@@ -7,10 +7,11 @@ import { IoEarthSharp } from "react-icons/io5";
 import useFetchBinsData from '../../components/useFetchBinsData';
 
 const Home = () => {
+  const originalMessage = "Scan Item";
   const [isCameraOpen, setIsCameraOpen] = useState(false);
-  const [predictionText, setPredictionText] = useState("Place an item in front of the camera to watch the magic happen!");
+  const [predictionText, setPredictionText] = useState(originalMessage);
   const binsData = useFetchBinsData();
-  const [selectedBin, setSelectedBin] = useState('1'); // Assume binNumber is a string. Adjust according to your data structure.
+  const [selectedBin, setSelectedBin] = useState('1'); // Adjust according to your data structure.
 
   const handleItemDisposed = () => {
     window.alert("Success! Item successfully thrown in the bin!");
@@ -21,7 +22,18 @@ const Home = () => {
     setPredictionText(`Prediction: ${response.result.toUpperCase()}`);
   };
 
-  // Find the selected bin's statistics
+  // Revert prediction text to original message after 5 seconds
+  useEffect(() => {
+    let timer;
+    if (predictionText !== originalMessage) {
+      timer = setTimeout(() => {
+        setPredictionText(originalMessage);
+      }, 5000); // 5000 ms = 5 seconds
+    }
+    // Clear the timer if the component unmounts or if the predictionText changes again before the timer runs out
+    return () => clearTimeout(timer);
+  }, [predictionText, originalMessage]);
+
   const selectedBinStats = binsData.find(bin => bin.binNumber == selectedBin);
 
   return (
@@ -29,7 +41,7 @@ const Home = () => {
       <PredictionText text={predictionText} />
       <div className={styles.cameraFeedTopLeft}>
         <CameraFeed
-          selectedBin={selectedBin}        
+          selectedBin={selectedBin}
           setSelectedBin={setSelectedBin}
           onCameraStateChange={setIsCameraOpen}
           onItemDisposed={handleItemDisposed}
@@ -50,7 +62,6 @@ const Home = () => {
           <table>
             <thead>
               <tr>
-                <th>Bin Number</th>
                 <th>Items Recycled</th>
                 <th>Items Trashed</th>
                 <th>Items Composted</th>
@@ -58,7 +69,6 @@ const Home = () => {
             </thead>
             <tbody>
               <tr>
-                <td>{selectedBinStats.binNumber}</td>
                 <td>{selectedBinStats.itemsRecycled}</td>
                 <td>{selectedBinStats.itemsTrashed}</td>
                 <td>{selectedBinStats.itemsComposted}</td>

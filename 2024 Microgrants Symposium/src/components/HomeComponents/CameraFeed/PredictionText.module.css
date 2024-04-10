@@ -1,18 +1,36 @@
+@keyframes bounce {
+  0%, 20%, 50%, 80%, 100% {
+    transform: translateY(0);
+  }
+  40% {
+    transform: translateY(-30px);
+  }
+  60% {
+    transform: translateY(-15px);
+  }
+}
+
+
 .predictionContainer {
   /* Styling for the container */
   position: absolute;
   width: 60%;
   bottom: 50vh;
   text-align: center;
+  display: flex;
+  justify-content: center;
 }
 
+
 .predictionText {
-  font-size: 60px;
+  font-size: 120px;
   font-weight: bold;
   padding: 10px 20px;
   border-radius: 15px;
   margin-bottom: 20px;
   text-align: center;
   justify-content: center;
-  color: white;
+  color: rgba(200, 100, 255, 0.7);
+  text-shadow: -1px 1px 12px rgba(200, 100, 255, 0.8);
+  animation: bounce 2s infinite;
 }
