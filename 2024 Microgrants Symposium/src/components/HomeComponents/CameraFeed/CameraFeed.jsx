@@ -5,10 +5,10 @@ import { db } from "../../../Firebase";
 import { get, ref, set } from "firebase/database";
 import { IoIosArrowDropdownCircle } from "react-icons/io";
 
-const CameraFeed = ({ onCameraStateChange = () => {} }) => {
+const CameraFeed = ({ selectedBin, setSelectedBin, onCameraStateChange = () => {} }) => {
   const [prediction, setPrediction] = useState(null);
   const [imageSrc, setImageSrc] = useState('');
-  const [selectedBin, setSelectedBin] = useState(1);
+  // const [selectedBin, setSelectedBin] = useState(1);
   const canvasRef = useRef(null)
   const [instructionText, setInstructionText] = useState(
     "Place an item in front of the camera to watch the magic happen!"
@@ -97,31 +97,36 @@ const CameraFeed = ({ onCameraStateChange = () => {} }) => {
 
 
   return (
-    <div className={styles.cameraContainer}>
-      {/* Dropdown for bin selection */}
-      <div className={styles.dropdownContainer}>
-        <select
-          value={selectedBinRef.current}
-          onChange={(e) => {
-            selectedBinRef.current = Number(e.target.value);
-            console.log("Selected Bin:", e.target.value);
-          }}
-          className={styles.dropdown}
-        >
-          {[...Array(10).keys()].map((num) => (
-            <option key={num + 1} value={num + 1}>
-              Bin {num + 1}
-            </option>
-          ))}
-        </select>
-        <IoIosArrowDropdownCircle className={styles.dropdownIcon} />
+    <>
+      <div className={styles.absolute}>
+        {/* <p className={styles.predictionText}>{instructionText}</p> */}
       </div>
-      <div className={styles.cameraBorder}>
-        {imageSrc && <img src={imageSrc} alt="Fetched Snapshot" className={styles.fetchedImage} />}
-        <canvas ref={canvasRef} style={{ display: "none" }}></canvas>
+      <div className={styles.cameraContainer}>
+        {/* Dropdown for bin selection */}
+        <div className={styles.dropdownContainer}>
+          <select
+            value={selectedBinRef.current}
+            onChange={(e) => {
+              setSelectedBin(Number(e.target.value));
+              selectedBinRef.current = Number(e.target.value);
+              console.log("Selected Bin:", e.target.value);
+            }}
+            className={styles.dropdown}
+          >
+            {[...Array(10).keys()].map((num) => (
+              <option key={num + 1} value={num + 1}>
+                Bin {num + 1}
+              </option>
+            ))}
+          </select>
+          <IoIosArrowDropdownCircle className={styles.dropdownIcon} />
+        </div>
+        <div className={styles.cameraBorder}>
+          {imageSrc && <img src={imageSrc} alt="Fetched Snapshot" className={styles.fetchedImage} />}
+          <canvas ref={canvasRef} style={{ display: "none" }}></canvas>
+        </div>
       </div>
-      <p className={styles.predictionText}>{instructionText}</p>
-    </div>
+    </>
   );
 };
 

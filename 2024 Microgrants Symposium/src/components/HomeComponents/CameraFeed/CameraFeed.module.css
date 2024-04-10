@@ -14,30 +14,6 @@
   margin: 0 auto;
 }
 
-/* Medium screens */
-@media screen and (min-width: 768px) {
-  .cameraContainer {
-    width: 768px;
-    height: 432px; /* 768 * 9/16 */
-  }
-}
-
-/* Large screens */
-@media screen and (min-width: 1024px) {
-  .cameraContainer {
-    width: 1024px;
-    height: 576px; /* 1024 * 9/16 */
-  }
-}
-
-/* XL screens */
-@media screen and (min-width: 1248px) {
-  .cameraContainer {
-    width: 1152px;
-    height: 702px; /* 1024 * 9/16 */
-  }
-}
-
 .cameraBorder {
   border-radius: 15px; /* Rounded corners */
   overflow: hidden;
@@ -114,17 +90,6 @@
 .buttonBase:hover {
   transform: translateY(-5px);
   box-shadow: 0px 5px 20px rgba(0, 0, 0, 0.2);
-}
-
-.predictionText {
-  font-size: 35px;
-  font-weight: bold;
-  padding: 10px 20px;
-  border-radius: 15px;
-  margin-top: 20px;
-  text-align: center;
-  justify-content: center;
-  color: white;
 }
 
 .dropdownContainer {

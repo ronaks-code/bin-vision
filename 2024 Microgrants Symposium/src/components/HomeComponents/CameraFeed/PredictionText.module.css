@@ -1,0 +1,18 @@
+.predictionContainer {
+  /* Styling for the container */
+  position: absolute;
+  width: 60%;
+  bottom: 50vh;
+  text-align: center;
+}
+
+.predictionText {
+  font-size: 60px;
+  font-weight: bold;
+  padding: 10px 20px;
+  border-radius: 15px;
+  margin-bottom: 20px;
+  text-align: center;
+  justify-content: center;
+  color: white;
+}
