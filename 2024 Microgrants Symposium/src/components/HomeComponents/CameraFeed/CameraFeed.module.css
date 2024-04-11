@@ -3,14 +3,14 @@
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  height: 100vh;
+  height: auto;
 }
 
 /* Small screens */
 .cameraContainer {
   position: relative;
-  width: 640px;
-  height: 360px; /* 320 * 9/16 */
+  width: 320px;
+  height: 180px; /* 320 * 9/16 */
   margin: 0 auto;
 }
 

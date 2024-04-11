@@ -50,9 +50,9 @@ const Home = () => {
       </div>
       <div className={styles.stars}></div>
       <h1 className={styles.title}>
-        <span className={styles.icon}>
+        {/* <span className={styles.icon}>
           <IoEarthSharp size={48} />
-        </span>
+        </span> */}
         BinVision
       </h1>
       {/* Statistics Table for Selected Bin */}
@@ -62,9 +62,9 @@ const Home = () => {
           <table>
             <thead>
               <tr>
-                <th>Items Recycled</th>
-                <th>Items Trashed</th>
-                <th>Items Composted</th>
+                <th>Recycled</th>
+                <th>Trashed</th>
+                <th>Composted</th>
               </tr>
             </thead>
             <tbody>

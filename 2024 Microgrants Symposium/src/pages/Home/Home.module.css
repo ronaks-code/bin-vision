@@ -12,7 +12,7 @@
     black,
     rgba(0, 50, 0, 1)
   );
-  padding: 60px 0;
+  padding: 20px 0;
   overflow-y: hidden;
   position: relative;
   font-family: "Lucida Console", "Courier New", monospace;
@@ -20,14 +20,14 @@
 
 .cameraFeedTopLeft {
   position: absolute;
-  bottom: 50px;
-  right: 50px;
+  bottom: 10px;
+  right: 10px;
 }
 
 .title {
   font-weight: bold;
   transition: color 0.3s, text-shadow 0.3s, transform 0.3s;
-  font-size: 8rem;
+  font-size: 3rem;
   transform: scale(1.05);
   color: #24cc24;
   margin-bottom: 35px;
@@ -115,24 +115,24 @@
 .statisticsTable {
   background-color: #1E1E1E; /* Dark theme background */
   color: #fff; /* Light text for contrast */
-  padding: 30px; /* Increased padding for more space */
+  padding: 10px; /* Increased padding for more space */
   border-radius: 10px;
   box-shadow: 0 4px 8px rgba(0,0,0,0.5);
   overflow-x: auto;
   max-width: 90vw; /* Increase the width for a larger table */
   width: auto; /* Allow the table to expand based on content, up to the max width */
-  height: 360px;
+  height: auto;
   position: absolute;
-  bottom: 50px;
-  left: 50px;
+  bottom: 10px;
+  left: 10px;
   z-index: 2; 
   box-shadow: 0px 0px 80px rgba(200, 100, 255, 1); /* Lighter purple shadow */
 }
 
 .statisticsTable h2 {
-  font-size: 50px; /* Larger heading font size */
+  font-size: 20px; /* Larger heading font size */
   color: #22aa22; /* Accent color */
-  margin-bottom: 25px; /* Slightly more space below the heading */
+  margin-bottom: 10px; /* Slightly more space below the heading */
   text-align: center;
   font-family: "Lucida Console", "Courier New", monospace;
   font-weight: 1000;
@@ -145,9 +145,9 @@
 
 .statisticsTable th, .statisticsTable td {
   text-align: left;
-  padding: 12px 15px; /* Larger padding for more space around text */
+  padding: 8px 12px; /* Larger padding for more space around text */
   border-bottom: 1px solid #2F2F2F; /* Subtle border color */
-  font-size: 35px; /* Increased font size for better readability */
+  font-size: 18px; /* Increased font size for better readability */
   text-align: center;
   font-family: "Lucida Console", "Courier New", monospace;
   font-weight: 1000;
