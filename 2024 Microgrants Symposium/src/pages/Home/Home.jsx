@@ -25,7 +25,7 @@ const Home = () => {
   // Revert prediction text to original message after 5 seconds
   useEffect(() => {
     let timer;
-    if (predictionText !== originalMessage) {
+    if (predictionText != originalMessage) {
       timer = setTimeout(() => {
         setPredictionText(originalMessage);
       }, 5000); // 5000 ms = 5 seconds
@@ -33,6 +33,7 @@ const Home = () => {
     // Clear the timer if the component unmounts or if the predictionText changes again before the timer runs out
     return () => clearTimeout(timer);
   }, [predictionText, originalMessage]);
+
 
   const selectedBinStats = binsData.find(bin => bin.binNumber == selectedBin);
 
